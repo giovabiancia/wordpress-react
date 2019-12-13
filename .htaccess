@@ -1,0 +1,19 @@
+
+# BEGIN WordPress
+# Le direttive (linee) tra `BEGIN WordPress` e `END WordPress` sono
+# generate dinamicamente, e dovrebbero essere modificare solo con i filtri di WordPress.
+# Ogni modifica alle direttive tra questi marcatori sarà sovrascritta.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /wordpress/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wordpress/index.php [L]
+
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+</IfModule>
+
+# END WordPress
