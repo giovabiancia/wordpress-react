@@ -1,27 +1,37 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import Home from './components/Home'
 import Contatti from './components/Contatti'
 import Servizio from './components/Servizio'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import './App.css';
+import './css';
 import Nav from './components/Nav'
+import axios from 'axios'
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/servizio" component={Servizio} />
-          <Route exact path="/contatti" component={Contatti} />
-        </Switch>
+export class App extends Component {
+
+  render() {
 
 
 
-      </div>
-    </Router>
-  );
+
+    return (
+      <Router>
+        <div className="App">
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/servizio" component={Servizio} />
+            <Route exact path="/contatti" component={Contatti} />
+          </Switch>
+
+
+
+        </div>
+      </Router>
+    );
+
+  }
+
 }
 
 export default App;
