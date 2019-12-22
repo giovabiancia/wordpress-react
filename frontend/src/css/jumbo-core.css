@@ -7120,12 +7120,12 @@ table.dataTable thead .sorting_desc_disabled::after {
   height: 35px;
   margin-top: -17px; }
   .lSAction > a.lSPrev {
-    background-image: url("../images/prev.png");
+
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: 100%; }
   .lSAction > a.lSNext {
-    background-image: url("../images/next.png");
+  
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: 100%; }

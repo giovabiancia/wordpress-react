@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import '../css/Nav.css'
+import logo from './logo.png';
 
 export class Nav extends Component {
     state = {
@@ -19,26 +21,49 @@ export class Nav extends Component {
     }
     render() {
         const { menu, isLoaded } = this.state;
-        console.log(this.state)
+
         if (isLoaded) {
             return (
-                <nav>
-                    <ul className="nav-links">
-                        <Link to={'/'}>
-                            <h3>Bplanner</h3>
-                        </Link>
-                        {menu.map(ele => (
-                            <Link to={ele.title}>
-                                <li>{ele.title}</li>
-
-                            </Link>
-
-                        ))}
+                <div className="gx-main-header">
+                    <header class="main-header">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="gx-container">
+                                    <div class="gx-toolbar menu">
 
 
-                    </ul>
 
-                </nav>
+                                        <a class="site-logo" >
+                                            <img src={logo} alt="Bplanner" title="Bplanner" />>
+                                        </a>
+
+
+
+
+
+                                        <ul className="menu-li nav-menu">
+                                            <Link to={'/'}>
+                                                <h3>Bplanner</h3>
+                                            </Link>
+                                            {menu.map(ele => (
+                                                <Link to={ele.title}>
+                                                    <li className="nav-item">{ele.title}</li>
+
+                                                </Link>
+
+                                            ))}
+
+
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                </div>
             )
 
 
