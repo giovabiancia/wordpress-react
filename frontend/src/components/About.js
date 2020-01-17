@@ -10,8 +10,6 @@ export default function About() {
 
 
 
-
-
                         <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 4842px;"><div class="owl-item active" style="width: 1594px; margin-right: 20px;"><div class="item">
                             <div class="m-1">
                                 <div class="gx-card">

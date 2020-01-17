@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import '../css/Nav.css'
-import logo from './logo.png';
+import logo from './logo.jpg';
 
 export class Nav extends Component {
     state = {
@@ -24,46 +23,41 @@ export class Nav extends Component {
 
         if (isLoaded) {
             return (
-                <div className="gx-main-header">
-                    <header class="main-header">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="gx-container">
-                                    <div class="gx-toolbar menu">
+                <header>
+                    <nav className="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+                        <div className="container">
+                            <Link to={'/'}>
+                                <a className="navbar-brand" href="#">
+                                    <img src="http://placehold.it/150x50?text=Logo" alt="" />
+
+                                </a>
+                            </Link>
+
+                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarResponsive">
+                                <ul className="navbar-nav ml-auto">
+
+                                    {menu.map(ele => (
+                                        <Link to={ele.title}>
+                                            <li className="nav-item">
+                                                <a className="nav-link" href="#">{ele.title}</a>
+                                            </li>
 
 
+                                        </Link>
 
-                                        <a class="site-logo" >
-                                            <img src={logo} alt="Bplanner" title="Bplanner" />>
-                                        </a>
-
+                                    ))}
 
 
+                                </ul>
 
-
-                                        <ul className="menu-li nav-menu">
-                                            <Link to={'/'}>
-                                                <h3>Bplanner</h3>
-                                            </Link>
-                                            {menu.map(ele => (
-                                                <Link to={ele.title}>
-                                                    <li className="nav-item">{ele.title}</li>
-
-                                                </Link>
-
-                                            ))}
-
-
-                                        </ul>
-
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                    </header>
+                    </nav>
+                </header>
 
-                </div>
             )
 
 

@@ -1,42 +1,47 @@
-import React, { Fragment, Component } from 'react';
-import Home from './components/Home'
-import Contatti from './components/Contatti'
-import Servizio from './components/Servizio'
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import './css/jumbo-bootstrap.css';
-import './css/jumbo-core.css';
-import Nav from './components/Nav'
-import Footer from './components/Footer'
-import axios from 'axios'
+import React, { Fragment, Component } from "react";
+import Home from "./components/Home/Home";
+import Contatti from "./components/Contatti";
+import Servizio from "./components/Servizio";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import axios from "axios";
+import "./css/Nav.css";
+import { Api } from "./apiCall/Api";
 
 export class App extends Component {
-
-  render() {
-
-
-
-
-    return (
-      <Router>
-        <div className="gx-main-container">
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/servizio" component={Servizio} />
-            <Route exact path="/contatti" component={Contatti} />
-
-          </Switch>
-          <Footer />
-
-
-
-        </div>
-      </Router>
-    );
-
+  state = {
+    isLoaded: false,
+    data: []
+  };
+  componentDidMount() {
+    // invia a API gli id delle pagine da richiamare
+    const Apidata = Api([15, 12, 34], data => {
+      this.setState({ isLoaded: true, data: [...this.state.data, data] });
+    });
   }
 
+  render() {
+    return (
+      <Router>
+        <Nav />
+        <main role="main">
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <Home {...props} authenticate={this.state.data} />
+              )}
+            />
+            <Route exact path="/servizio" component={Servizio} />
+            <Route exact path="/contatti" component={Contatti} />
+          </Switch>
+        </main>
+        <Footer />
+      </Router>
+    );
+  }
 }
 
 export default App;

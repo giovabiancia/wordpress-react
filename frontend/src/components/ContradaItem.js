@@ -15,7 +15,7 @@ export class ContradaItem extends Component {
     }
     componentDidMount() {
         const { featured_media, author } = this.props.contrada
-        console.log(featured_media, author)
+
         const getImageUrl = axios.get(`/wordpress/wp-json/wp/v2/media/${featured_media}`)
         const getAuthor = axios.get(`/wordpress/wp-json/wp/v2/users/${author}`)
         Promise.all([getImageUrl, getAuthor]).then(res => {
