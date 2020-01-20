@@ -5,8 +5,9 @@ export const Api = (array, callback) => {
   let resArr = [];
   array.forEach(element => {
     axios.get(`/wordpress/wp-json/wp/v2/pages/${element}`).then(res => {
-      resArr.push(res);
-      callback(res);
+      let acf = res.data.acf;
+      resArr.push(acf);
+      callback(acf);
     });
   });
 };

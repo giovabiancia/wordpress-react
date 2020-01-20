@@ -1,11 +1,17 @@
 import React, { Component, useContext } from "react";
 import Carosello from "./Carosello";
+import Cards from "./Cards";
 
 export class Home extends Component {
   render() {
-    console.log(this.props);
+    let acfS = this.props.authenticate[0];
 
-    return <Carosello />;
+    return (
+      <div>
+        <Carosello acf={acfS} />
+        <Cards acf={acfS} />
+      </div>
+    );
   }
 }
 
