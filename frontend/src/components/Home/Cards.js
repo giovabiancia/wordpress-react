@@ -4,7 +4,7 @@ export class Cards extends Component {
   render() {
     if (this.props.acf !== undefined) {
       let acfs = this.props.acf.card;
-      console.log(acfs);
+
       let titolo1 = acfs[0].titolo;
       let titolo2 = acfs[1].titolo;
       let titolo3 = acfs[2].titolo;
